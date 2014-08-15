@@ -50,6 +50,7 @@ all: testfilehelper
 all: testmain
 all: testadd-delete-decoders
 all: test-stream-for-period
+all: test-whether-already-authenticated
 
 testfilehelper:
 	$(QUIET_MKDIR)mkdir -p output.run
@@ -66,6 +67,14 @@ test-ifb:
 testadd-delete-decoders:
 	$(QUIET_MKDIR)mkdir -p output.run
 	$(QUIET_INSTRUMENTS)$(INSTRUMENTS) $(INS_PARAMS) -e UIASCRIPT src/testadd-delete-decoders.js
+
+test-metadata:
+	$(QUIET_MKDIR)mkdir -p output.run
+	$(QUIET_INSTRUMENTS)$(INSTRUMENTS) $(INS_PARAMS) -e UIASCRIPT src/MetaData.js
+test-whether-already-authenticated:
+	$(QUIET_MKDIR)mkdir -p output.run
+	$(QUIET_INSTRUMENTS)$(INSTRUMENTS) $(INS_PARAMS) -e UIASCRIPT src/test-whether-already-authenticated.js
+
 
 test-stream-for-period:
 	$(QUIET_MKDIR)mkdir -p output.run
